@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portafolio · Game Developer</title>
+<meta name="description" content="Portafolio de desarrollo de videojuegos">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f14;--surf:#151923;--line:#252b3a;--tx:#e8ebf2;--mut:#98a1b5;--ac:#7c5cff;--ac2:#22d3ee;--r:14px;color-scheme:dark}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7fb;--surf:#fff;--line:#dde1ec;--tx:#141824;--mut:#5b6478;color-scheme:light}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 "Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:5;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
+nav b{letter-spacing:.04em}nav a{margin-left:18px;color:var(--mut);text-decoration:none;font-size:14px}nav a:hover{color:var(--tx)}
+.hero{padding:96px 20px 56px}
+.eyebrow{color:var(--ac2);text-transform:uppercase;letter-spacing:.18em;font-size:13px;margin:0 0 10px}
+h1{font-size:clamp(40px,8vw,76px);line-height:1.05;margin:0 0 16px;background:linear-gradient(90deg,var(--tx),var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:620px;color:var(--mut);font-size:19px;margin:0 0 26px}
+.btn{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--ac);color:#fff;text-decoration:none;font-weight:500;border:1px solid var(--ac);cursor:pointer;font:inherit}
+.btn.ghost{background:transparent;color:var(--tx);border-color:var(--line);margin-left:8px}.btn.sm{padding:5px 14px;font-size:14px}
+section{padding:56px 20px}
+h2{font-size:30px;margin:0 0 22px}h2::before{content:"";display:inline-block;width:28px;height:4px;background:var(--ac);border-radius:2px;margin-right:12px;vertical-align:middle}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{font:inherit;font-size:14px;padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surf);color:var(--mut);cursor:pointer}
+.chip.on,.chip:hover{border-color:var(--ac);color:var(--tx)}.chip.on{background:var(--ac);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--ac)}
+.thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;font-size:56px;font-weight:700;color:#ffffff99}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}.body h3{margin:0;font-size:20px}.body p{margin:0;color:var(--mut);font-size:15px}
+.meta{color:var(--mut);font-size:13px}.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span,.skills span{font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ac2)}
+.links{margin-top:auto;padding-top:6px}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}.skills{display:flex;flex-wrap:wrap;gap:8px}.skills span{font-size:14px;padding:4px 14px}
+.tl{border-left:2px solid var(--line);padding:0 0 26px 20px;position:relative}.tl::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--ac)}
+.tl h3{margin:2px 0 4px;font-size:18px}.tl p{margin:0;color:var(--mut)}
+.contact a{display:inline-block;margin:0 14px 10px 0;color:var(--ac2)}
+footer{padding:30px 20px;text-align:center;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+.mini{position:absolute;top:8px;right:8px;z-index:2;font:inherit;font-size:12px;padding:3px 10px;border-radius:8px;border:0;background:#000b;color:#fff;cursor:pointer}.mini+.mini{top:38px;background:#b3261eee}
+.bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:94vw;padding:10px;background:var(--surf);border:1px solid var(--ac);border-radius:14px;box-shadow:0 8px 30px #0006}
+.bar span{align-self:center;font-size:13px;color:var(--ac2);padding:0 6px}
+body.edit [contenteditable]{outline:1px dashed var(--ac2);outline-offset:3px;border-radius:4px;min-width:20px}
+textarea{width:100%;font:inherit;font-size:14px;background:var(--surf);color:var(--tx);border:1px dashed var(--ac2);border-radius:8px;padding:8px}
+@media(max-width:700px){nav a{display:none}.two{grid-template-columns:1fr}.hero{padding-top:56px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<input type="file" id="imp" accept="application/json" hidden>
+<script>
+/* ===== DATOS =====
+   Estos son los datos por defecto. Para publicar tu contenido real:
+   1) abre la página con ?edit, edita y pulsa «Exportar JSON»
+   2) sube ese archivo al repositorio con el nombre portfolio.json (junto a index.html)
+   Si portfolio.json existe, la página lo usa en lugar de estos datos. */
+const DEFAULT={
+ name:"Tu Nombre",role:"Game Developer",
+ tagline:"Diseño y programo videojuegos con foco en jugabilidad, rendimiento y buenas herramientas.",
+ about:"Cuenta quién eres: tu trayectoria, el tipo de juegos que te apasionan y qué estás buscando ahora.",
+ skills:["Unity","C#","Unreal Engine","C++","Godot","Game Design","Shaders","Git"],
+ experience:[
+  {title:"Game Developer",place:"Estudio / Freelance",period:"2022 – Actualidad",text:"Describe tus responsabilidades y logros principales."},
+  {title:"Game Jam Developer",place:"Ludum Dare / GMTK",period:"2020 – 2022",text:"Prototipos rápidos en equipo con entregas en 48–72 horas."}
+ ],
+ contact:{email:"tu@email.com",links:[{label:"Roport",url:"https://roport.lol"},{label:"GitHub",url:"https://github.com"},{label:"itch.io",url:"https://itch.io"}]},
+ works:[
+  {title:"Nombre del juego 1",year:"2025",engine:"Unity",role:"Programador gameplay",tags:["PC","3D","Acción"],desc:"Resumen corto del juego, tu aporte y el resultado.",image:"",link:""},
+  {title:"Nombre del juego 2",year:"2024",engine:"Unreal Engine",role:"Diseñador y programador",tags:["VR","Puzzle"],desc:"Qué problema resolvía el proyecto y qué tecnología usaste.",image:"",link:""},
+  {title:"Nombre del juego 3",year:"2023",engine:"Godot",role:"Desarrollo completo",tags:["2D","Game Jam","Móvil"],desc:"Proyecto de game jam desarrollado en 48 horas.",image:"",link:""}
+ ]
+};
+const KEY="portfolio-draft-v1",EDIT=location.search.includes("edit");
+let D=structuredClone(DEFAULT),filter="Todos";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const safe=u=>/^\s*javascript:/i.test(u||"")?"#":esc(u);
+const ed=(p,list)=>EDIT?` contenteditable="plaintext-only" data-p="${p}"${list?' data-list="1"':""}`:"";
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}};
+const keep=()=>{const y=scrollY;render();scrollTo(0,y)};
+
+const card=(w,i)=>`<article class="card"><div class="thumb">${w.image?`<img src="${esc(w.image)}" alt="${esc(w.title)}" loading="lazy" onerror="this.remove()">`:""}<span>${esc((w.title||"?")[0])}</span>${EDIT?`<button class="mini" data-act="img" data-i="${i}">Imagen</button><button class="mini" data-act="del" data-i="${i}">Eliminar</button>`:""}</div>
+<div class="body"><div class="meta"><span${ed(`works.${i}.year`)}>${esc(w.year)}</span> · <span${ed(`works.${i}.engine`)}>${esc(w.engine)}</span> · <span${ed(`works.${i}.role`)}>${esc(w.role)}</span></div>
+<h3${ed(`works.${i}.title`)}>${esc(w.title)}</h3><p${ed(`works.${i}.desc`)}>${esc(w.desc)}</p>
+${EDIT?`<div class="meta">Etiquetas (separadas por coma): <span${ed(`works.${i}.tags`,1)}>${esc((w.tags||[]).join(", "))}</span></div>`:`<div class="tags">${(w.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>`}
+<div class="links">${EDIT?`<button class="btn sm" data-act="link" data-i="${i}">Enlace: ${esc(w.link||"ninguno")}</button>`:w.link?`<a class="btn sm" href="${safe(w.link)}" target="_blank" rel="noopener">Ver proyecto ↗</a>`:""}</div></div></article>`;
+
+function render(){
+ document.title=D.name+" · "+D.role;
+ if(filter!=="Todos"&&!D.works.some(w=>w.engine===filter||(w.tags||[]).includes(filter)))filter="Todos";
+ const fs=["Todos",...new Set(D.works.flatMap(w=>[w.engine,...(w.tags||[])]).filter(Boolean))];
+ const shown=D.works.map((w,i)=>[w,i]).filter(([w])=>filter==="Todos"||w.engine===filter||(w.tags||[]).includes(filter));
+ const L=D.contact.links||[];
+ $("#app").innerHTML=`
+<nav><div class="wrap"><b>${esc(D.name)}</b><div><a href="#proyectos">Proyectos</a><a href="#sobre-mi">Sobre mí</a><a href="#experiencia">Experiencia</a><a href="#contacto">Contacto</a></div></div></nav>
+<header class="wrap hero"><p class="eyebrow"${ed("role")}>${esc(D.role)}</p><h1${ed("name")}>${esc(D.name)}</h1><p class="lead"${ed("tagline")}>${esc(D.tagline)}</p>
+<a class="btn" href="#proyectos">Ver proyectos</a><a class="btn ghost" href="#contacto">Contactar</a></header>
+<section id="proyectos" class="wrap"><h2>Proyectos</h2><div class="chips">${fs.map(x=>`<button class="chip${x===filter?" on":""}" data-f="${esc(x)}">${esc(x)}</button>`).join("")}</div>
+<div class="grid">${shown.map(([w,i])=>card(w,i)).join("")}</div></section>
+<section id="sobre-mi" class="wrap"><h2>Sobre mí</h2><div class="two"><p${ed("about")}>${esc(D.about)}</p>
+<div><h3 style="margin-top:0">Herramientas</h3>${EDIT?`<p class="meta">Separadas por coma:</p><div${ed("skills",1)}>${esc(D.skills.join(", "))}</div>`:`<div class="skills">${D.skills.map(s=>`<span>${esc(s)}</span>`).join("")}</div>`}</div></div></section>
+<section id="experiencia" class="wrap"><h2>Experiencia</h2>${D.experience.map((x,i)=>`<div class="tl"><div class="meta"${ed(`experience.${i}.period`)}>${esc(x.period)}</div><h3><span${ed(`experience.${i}.title`)}>${esc(x.title)}</span> · <span${ed(`experience.${i}.place`)}>${esc(x.place)}</span></h3><p${ed(`experience.${i}.text`)}>${esc(x.text)}</p>${EDIT?`<button class="btn sm ghost" data-act="dele" data-i="${i}" style="margin:6px 0 0">Eliminar</button>`:""}</div>`).join("")}</section>
+<section id="contacto" class="wrap contact"><h2>Contacto</h2>
+<p><a href="mailto:${esc(D.contact.email)}"${ed("contact.email")}>${esc(D.contact.email)}</a></p>
+${EDIT?`<p class="meta">Un enlace por línea con el formato «Etiqueta | URL»:</p><textarea rows="4" data-p="contact.links" data-links="1">${esc(L.map(l=>l.label+" | "+l.url).join("\n"))}</textarea>`:L.map(l=>`<a href="${safe(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("")}</section>
+<footer>© ${new Date().getFullYear()} ${esc(D.name)}</footer>
+${EDIT?`<div class="bar"><span>Modo edición</span><button class="btn sm" data-act="addw">+ Proyecto</button><button class="btn sm" data-act="adde">+ Experiencia</button><button class="btn sm" data-act="exp">Exportar JSON</button><button class="btn sm ghost" data-act="imp" style="margin:0">Importar</button><button class="btn sm ghost" data-act="reset" style="margin:0">Restablecer</button><button class="btn sm ghost" data-act="exit" style="margin:0">Salir</button></div>`:""}`;
+}
+
+document.addEventListener("input",e=>{
+ const el=e.target.closest("[data-p]");if(!el)return;
+ let v=el.value!==undefined?el.value:el.textContent;
+ if(el.dataset.list)v=v.split(",").map(s=>s.trim()).filter(Boolean);
+ if(el.dataset.links)v=v.split("\n").map(l=>l.split("|").map(s=>s.trim())).filter(a=>a[0]&&a[1]).map(([label,url])=>({label,url}));
+ const k=el.dataset.p.split(".");let o=D;for(const x of k.slice(0,-1))o=o[x];o[k.at(-1)]=v;save();
+});
+document.addEventListener("click",e=>{
+ const f=e.target.closest("[data-f]");if(f){filter=f.dataset.f;return keep()}
+ const b=e.target.closest("[data-act]");if(!b)return;const i=+b.dataset.i,a=b.dataset.act;
+ if(a==="img"){const u=prompt("URL o ruta de la imagen (por ejemplo assets/juego.png):",D.works[i].image||"");if(u!==null){D.works[i].image=u.trim()}}
+ else if(a==="link"){const u=prompt("Enlace del proyecto (itch.io, Steam, YouTube...):",D.works[i].link||"");if(u!==null){D.works[i].link=u.trim()}}
+ else if(a==="del"){if(!confirm("¿Eliminar este proyecto?"))return;D.works.splice(i,1)}
+ else if(a==="dele"){if(!confirm("¿Eliminar esta experiencia?"))return;D.experience.splice(i,1)}
+ else if(a==="addw")D.works.unshift({title:"Nuevo proyecto",year:String(new Date().getFullYear()),engine:"Unity",role:"Rol",tags:[],desc:"Descripción del proyecto.",image:"",link:""});
+ else if(a==="adde")D.experience.unshift({title:"Puesto",place:"Empresa",period:"Año – Año",text:"Descripción."});
+ else if(a==="exp"){const u=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:"application/json"})),l=document.createElement("a");l.href=u;l.download="portfolio.json";l.click();URL.revokeObjectURL(u);return}
+ else if(a==="imp")return $("#imp").click();
+ else if(a==="reset"){if(!confirm("Se descartará el borrador y se volverá a los datos publicados."))return;try{localStorage.removeItem(KEY)}catch(x){}return location.reload()}
+ else if(a==="exit")return location.href=location.pathname;
+ save();keep();
+});
+$("#imp").addEventListener("change",async e=>{
+ try{const d=JSON.parse(await e.target.files[0].text());if(!Array.isArray(d.works))throw 0;D=d;save();keep()}catch(x){alert("El archivo no tiene el formato esperado.")}
+ e.target.value="";
+});
+(async()=>{
+ let base=DEFAULT;
+ try{const r=await fetch("portfolio.json",{cache:"no-store"});if(r.ok)base=await r.json()}catch(e){}
+ let draft=null;if(EDIT){try{draft=JSON.parse(localStorage.getItem(KEY))}catch(e){}}
+ D=draft||base;if(EDIT)document.body.classList.add("edit");render();
+})();
+</script>
+</body>
+</html>
